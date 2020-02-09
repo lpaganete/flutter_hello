@@ -10,7 +10,7 @@ Widget build(BuildContext context) {
 
     appBar: AppBar(
       title: Text(
-        "Hello Flutter",
+        "PAge 1",
       ),
       centerTitle: true,
     ),
