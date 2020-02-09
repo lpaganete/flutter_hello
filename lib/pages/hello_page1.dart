@@ -10,7 +10,7 @@ Widget build(BuildContext context) {
 
     appBar: AppBar(
       title: Text(
-        "PAge 1",
+        "Page 1",
       ),
       centerTitle: true,
     ),
