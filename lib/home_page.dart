@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello/pages/hello_page1.dart';
 import 'package:flutter_hello/pages/hello_page2.dart';
 import 'package:flutter_hello/pages/hello_page3.dart';
+import 'package:flutter_hello/widgets/bluebutton.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -85,17 +86,7 @@ class HomePage extends StatelessWidget {
   }
 
   _button(BuildContext context,String text, Function onPressed) {
-    return RaisedButton(
-        color: Colors.blue,
-        child: Text(
-          text,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 20,
-          ),
-        ),
-        onPressed: onPressed
-    );
+    return BlueButton(text, onPressed);
   }
 
 
