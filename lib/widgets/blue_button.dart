@@ -6,8 +6,7 @@ class BlueButton extends StatelessWidget {
   String text;
   Function onPressed;
 
-
-  BlueButton(this.text, this.onPressed);
+  BlueButton (this.text, {@required this.onPressed}); //Contrutor
 
   @override
   Widget build(BuildContext context) {

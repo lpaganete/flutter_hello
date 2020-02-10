@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hello/pages/hello_page1.dart';
 import 'package:flutter_hello/pages/hello_page2.dart';
 import 'package:flutter_hello/pages/hello_page3.dart';
-import 'package:flutter_hello/widgets/bluebutton.dart';
+import 'package:flutter_hello/widgets/blue_button.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -52,17 +52,17 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button(context,"ListView", () => _onClickNavigator(context, HelloPage1())),
-            _button(context,"Page 2", () => _onClickNavigator(context, HelloPage2())),
-            _button(context,"Page 3", () => _onClickNavigator(context, HelloPage3())),
+            BlueButton("ListView", onPressed: () => _onClickNavigator(context, HelloPage1())), // chamando o widget bluebutton direto e passando os parametros
+            BlueButton("Page 2", onPressed:() => _onClickNavigator(context, HelloPage2())),
+            BlueButton("Page 3", onPressed:() => _onClickNavigator(context, HelloPage3())),
           ],
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            _button(context,"Snack", _onClickSnack),
-            _button(context,"Dialog", _onClickDialog),
-            _button(context,"Toast", _onClickToast),
+            BlueButton("Snack",onPressed: _onClickSnack),
+            BlueButton("Dialog", onPressed: _onClickDialog),
+            BlueButton("Toast", onPressed: _onClickToast),
           ],
         )
       ],
@@ -84,11 +84,6 @@ class HomePage extends StatelessWidget {
 
   _onClickToast() {
   }
-
-  _button(BuildContext context,String text, Function onPressed) {
-    return BlueButton(text, onPressed);
-  }
-
 
 
   _img(String img) {
