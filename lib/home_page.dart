@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hello/pages/hello_page1.dart';
+import 'package:flutter_hello/pages/hello_listview.dart';
 import 'package:flutter_hello/pages/hello_page2.dart';
 import 'package:flutter_hello/pages/hello_page3.dart';
 import 'package:flutter_hello/utils/nav.dart';
@@ -11,6 +11,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text("Hello Flutter"),
+        centerTitle: true,
       ),
       body: _body(context),
     );
@@ -53,7 +54,7 @@ class HomePage extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            BlueButton("ListView", onPressed: () => _onClickNavigator(context, HelloPage1())), // chamando o widget bluebutton direto e passando os parametros
+            BlueButton("ListView", onPressed: () => _onClickNavigator(context, HelloListView())), // chamando o widget bluebutton direto e passando os parametros
             BlueButton("Page 2", onPressed:() => _onClickNavigator(context, HelloPage2())),
             BlueButton("Page 3", onPressed:() => _onClickNavigator(context, HelloPage3())),
           ],
