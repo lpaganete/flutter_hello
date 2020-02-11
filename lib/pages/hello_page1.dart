@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 class HelloPage1 extends StatelessWidget {
 @override
 Widget build(BuildContext context) {
-  return Scaffold(
+  return
+    Scaffold(
 
 
     appBar: AppBar(
@@ -14,9 +15,22 @@ Widget build(BuildContext context) {
       ),
       centerTitle: true,
     ),
-    body: Container(
-
+    body: ListView(
+      children: <Widget>[
+        _img("assets/images/dog1.png"),
+        _img("assets/images/dog2.png"),
+        _img("assets/images/dog3.png"),
+        _img("assets/images/dog4.png"),
+        _img("assets/images/dog5.png"),
+      ],
     ),
+  );
+}
+
+_img(String img) {
+  return Image.asset(
+    img,
+    fit: BoxFit.cover,
   );
 }
 }

@@ -5,13 +5,14 @@ import 'package:flutter/material.dart';
 class BlueButton extends StatelessWidget {
   String text;
   Function onPressed;
+  Color color;
 
-  BlueButton (this.text, {@required this.onPressed}); //Contrutor
+  BlueButton (this.text, {@required this.onPressed, this.color = Colors.blue}); //Contrutor. O this.color = Colors.blue é um parametro que tem um valor default ja definido, caso ele não seja instanciado, pois é um parametro opcional
 
   @override
   Widget build(BuildContext context) {
     return RaisedButton(
-        color: Colors.blue,
+        color: color,
         child: Text(
           text,
           style: TextStyle(
@@ -19,7 +20,7 @@ class BlueButton extends StatelessWidget {
             fontSize: 20,
           ),
         ),
-        onPressed: onPressed
+        onPressed: onPressed,
     );
   }
 }
