@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class HelloListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class HelloListView extends StatelessWidget {
   }
 
   _body() {
-    List<Widget> imgs = [
+    List<Widget> imgs = [ //Lista que retorna um conjunto de widget
       _img("assets/images/dog1.png"),
       _img("assets/images/dog2.png"),
       _img("assets/images/dog3.png"),
@@ -24,11 +25,14 @@ class HelloListView extends StatelessWidget {
     ];
 
     return ListView.builder(
-        itemCount: imgs.length,
-        itemExtent: 300,
+        itemCount: imgs.length, //recebe a quantidade de elementos da lista
+        itemExtent: 300, //extende as imagens a 300 px
         itemBuilder: (context, index) {
-          return imgs [index];
-    });
+          return imgs[index];
+          /*Image img = imgs[index];   //o return tbm pode ser assim
+          return img;*/
+    },
+    );
   }
 
   Widget _img(String img) {
