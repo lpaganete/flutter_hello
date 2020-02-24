@@ -32,14 +32,24 @@ class HelloListView extends StatelessWidget {
 
     return ListView.builder( //objetivo agr é converter a class Dog para widget
         itemCount: dogs.length, //recebe a quantidade de elementos da lista
-        itemExtent: 300, //extende as imagens a 300 px
-        itemBuilder: (context, index) {
+        itemExtent: 300, //extende as imagens até 300 px
+        itemBuilder: (context, index) { // Responsavel por retornar o layout (widget) dessa celula
          
           Dog dog = dogs[index]; //recuperando o objeto cachorro
 
-          return _img(dog.foto);  // passando um widget imagem e dentro passando o endereço da foto que esta no contrutor 
+          return Stack( // Funciona como uma pilha
+            fit: StackFit.expand, //Expande a imagem até o máximo (no caso 300px que foi definido)
+            children: <Widget>[
+              _img(dog.foto), // A imagem sempre tem que vir antes do nome
+              
+              Text(dog.nome,
+              style: TextStyle(fontSize: 26, color: Colors.white),
+              ),
+
+            ],
+          );  
           
-    },
+       },
     );
   }
 
