@@ -107,5 +107,4 @@ class HomePage extends StatelessWidget {
           decorationStyle: TextDecorationStyle.wavy),
     );
   }
-
 }
