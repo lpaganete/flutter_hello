@@ -30,9 +30,9 @@ class HelloListView extends StatelessWidget {
       Dog("Pastor", "assets/images/dog5.png"),
     ];
 
-    return ListView.builder( //objetivo agr é converter a class Dog para widget
-        itemCount: dogs.length, //recebe a quantidade de elementos da lista
-        itemExtent: 300, //extende as imagens até 300 px
+    return GridView .builder( 
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),  //Adciona mais colunas a listView
+        itemCount: dogs.length,
         itemBuilder: (context, index) { // Responsavel por retornar o layout (widget) dessa celula
          
           Dog dog = dogs[index]; //recuperando o objeto cachorro
@@ -43,19 +43,18 @@ class HelloListView extends StatelessWidget {
               _img(dog.foto), // A imagem sempre tem que vir antes do nome
               Align( // Para mudar a posição do texto 
                 alignment: Alignment.topLeft,
-                child: Container(
-                  margin: EdgeInsets.all(12), // define uma margem para o container
-                  padding: EdgeInsets.all(8),
-                    decoration: BoxDecoration( // Possibilita a personalização do container 
-                      color: Colors.black45,
-                      borderRadius: BorderRadius.circular(16), //Adiciona uma borda arredondada
-                    ),
-                    child: Text(dog.nome,
-                      style: TextStyle(fontSize: 26, color: Colors.white),
-                    ),
+                      child: Container(
+                      margin: EdgeInsets.all(12), // define uma margem para o container
+                      padding: EdgeInsets.all(8),
+                      decoration: BoxDecoration( // Possibilita a personalização do container 
+                        color: Colors.black45,
+                        borderRadius: BorderRadius.circular(16), //Adiciona uma borda arredondada
+                      ),
+                        child: Text(dog.nome,
+                        style: TextStyle(fontSize: 26, color: Colors.white),
+                      ),
                 ),
               ),
-             
             ],
           );  
           
