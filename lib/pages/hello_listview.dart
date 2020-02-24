@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
 
+class Dog {
+  String nome;
+  String foto;
+  Dog(this.nome, this.foto);
+}
+
 
 class HelloListView extends StatelessWidget {
   @override
@@ -16,21 +22,23 @@ class HelloListView extends StatelessWidget {
   }
 
   _body() {
-    List<Widget> imgs = [ //Lista que retorna um conjunto de widget
-      _img("assets/images/dog1.png"),
-      _img("assets/images/dog2.png"),
-      _img("assets/images/dog3.png"),
-      _img("assets/images/dog4.png"),
-      _img("assets/images/dog5.png"),
+    List<Dog> dogs = [ //Lista da classe cachorro  //arrei de cachorros 
+      Dog("Jack Russel", "assets/images/dog1.png"),
+      Dog("Labrador", "assets/images/dog2.png"),
+      Dog("Pug", "assets/images/dog3.png"),
+      Dog("Hottweiler", "assets/images/dog4.png"),
+      Dog("Pastor", "assets/images/dog5.png"),
     ];
 
-    return ListView.builder(
-        itemCount: imgs.length, //recebe a quantidade de elementos da lista
+    return ListView.builder( //objetivo agr é converter a class Dog para widget
+        itemCount: dogs.length, //recebe a quantidade de elementos da lista
         itemExtent: 300, //extende as imagens a 300 px
         itemBuilder: (context, index) {
-          return imgs[index];
-          /*Image img = imgs[index];   //o return tbm pode ser assim
-          return img;*/
+         
+          Dog dog = dogs[index]; //recuperando o objeto cachorro
+
+          return _img(dog.foto);  // passando um widget imagem e dentro passando o endereço da foto que esta no contrutor 
+          
     },
     );
   }
