@@ -12,6 +12,14 @@ class HelloListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: <Widget>[ //Arrey de widgets que permite colocar qualquer widget na appbar
+          IconButton(icon: Icon(Icons.list), onPressed: (){  //Class IconButton adiciona botoes a appbar
+            print("Lista");
+          },),
+           IconButton(icon: Icon(Icons.grid_on), onPressed: (){
+            print("Grid");
+          },)
+        ],
         title: Text(
             "ListView"
         ),
