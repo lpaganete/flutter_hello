@@ -41,11 +41,13 @@ class HelloListView extends StatelessWidget {
             fit: StackFit.expand, //Expande a imagem até o máximo (no caso 300px que foi definido)
             children: <Widget>[
               _img(dog.foto), // A imagem sempre tem que vir antes do nome
-              
-              Text(dog.nome,
-              style: TextStyle(fontSize: 26, color: Colors.white),
+              Container( // Para mudar a posição do texto 
+                alignment: Alignment.topRight,
+                child: Text(dog.nome,
+                  style: TextStyle(fontSize: 26, color: Colors.white),
+                ),
               ),
-
+             
             ],
           );  
           
