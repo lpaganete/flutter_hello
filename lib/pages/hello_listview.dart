@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hello/pages/dog_page.dart';
+import 'package:flutter_hello/utils/nav.dart';
 
 class Dog {
   String nome;
@@ -81,25 +83,30 @@ class _HelloListViewState extends State<HelloListView> {
   _itemView(List<Dog> dogs, int index) {
     Dog dog = dogs[index]; //recuperando o objeto cachorro
     
-    return Stack( // Funciona como uma pilha
-      fit: StackFit.expand, //Expande a imagem até o máximo (no caso 300px que foi definido)
-      children: <Widget>[
-        _img(dog.foto), // A imagem sempre tem que vir antes do nome
-        Align( // Para mudar a posição do texto 
-          alignment: Alignment.topLeft,
-                child: Container(
-                margin: EdgeInsets.all(12), // define uma margem para o container
-                padding: EdgeInsets.all(8),
-                decoration: BoxDecoration( // Possibilita a personalização do container 
-                color: Colors.black45,
-                  borderRadius: BorderRadius.circular(16), //Adiciona uma borda arredondada
-                ),
-                  child: Text(dog.nome,
-                  style: TextStyle(fontSize: 26, color: Colors.white),
-                ),
+    return GestureDetector( //Permite adicionar metodo de click em widgets que não sao bot
+        onTap: () {
+          push(context, DogPage(dog));
+        },
+         child: Stack( // Funciona como uma pilha
+        fit: StackFit.expand, //Expande a imagem até o máximo (no caso 300px que foi definido)
+        children: <Widget>[
+          _img(dog.foto), // A imagem sempre tem que vir antes do nome
+          Align( // Para mudar a posição do texto 
+            alignment: Alignment.topLeft,
+                  child: Container(
+                  margin: EdgeInsets.all(12), // define uma margem para o container
+                  padding: EdgeInsets.all(8),
+                  decoration: BoxDecoration( // Possibilita a personalização do container 
+                  color: Colors.black45,
+                    borderRadius: BorderRadius.circular(16), //Adiciona uma borda arredondada
+                  ),
+                    child: Text(dog.nome,
+                    style: TextStyle(fontSize: 26, color: Colors.white),
+                  ),
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     ); 
   }
 
