@@ -27,12 +27,16 @@ class _HelloListViewState extends State<HelloListView> {
         actions: <Widget>[ //Arrey de widgets que permite colocar qualquer widget na appbar
           IconButton(icon: Icon(Icons.list), onPressed: (){  //Class IconButton adiciona botoes a appbar
             print("Lista");
-            _gridView = false; // Se eu clicar no botão da lista, ele vai retornar para variavel false
+           setState(() {
+              _gridView = false; // Se eu clicar no botão da lista, ele vai retornar para variavel false
+           });  //QUANDO ESSE PEDAÇO DE CODIGO CABAR DE EXECUTAR, ELE VAI CHAMAR O MÉTODO BUILD NOVAMENTE E REDESENHAR A TELA
 
           },),
            IconButton(icon: Icon(Icons.grid_on), onPressed: (){
             print("Grid");
-            _gridView = true; // se eu clicar no botão da grid, ele vai retornar true
+            setState(() {
+              _gridView = true; // se eu clicar no botão da grid, ele vai retornar true
+            });
           },)
         ],
       ),
@@ -87,7 +91,7 @@ class _HelloListViewState extends State<HelloListView> {
                 margin: EdgeInsets.all(12), // define uma margem para o container
                 padding: EdgeInsets.all(8),
                 decoration: BoxDecoration( // Possibilita a personalização do container 
-                  color: Colors.black45,
+                color: Colors.black45,
                   borderRadius: BorderRadius.circular(16), //Adiciona uma borda arredondada
                 ),
                   child: Text(dog.nome,
